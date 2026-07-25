@@ -1,8 +1,22 @@
 aid: crowdgather
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/crowdgather.png
 name: CrowdGather
-description: CrowdGather is a company surfaced as a portfolio company of battery-ventures and added to
-  the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: CrowdGather was an online forum and message-board network operator, surfaced as a portfolio
+  company of battery-ventures and added to the API Evangelist network as an enrichment lead. The company
+  is defunct — crowdgather.com no longer serves a product and resolves to a GoDaddy parking lander, and
+  no developer portal, documentation, API, or specification survives on any host. This profile is retained
+  as a verified-negative record so future enrichment runs do not re-probe it from scratch.
 url: https://raw.githubusercontent.com/api-evangelist/crowdgather/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,9 +24,43 @@ x-backed-by:
 - battery-ventures
 x-tier: stub
 x-tier-reason: portfolio-lead
+x-status: defunct
+x-website-status: parked
+x-enrichment-note: 'Enrichment pass 2026-07-20 (confirms and extends the 2026-07-18 probe).
+  Company is defunct: no live product, API, developer portal, docs, or OpenAPI. No provider
+  artifacts could be truthfully created — no fabrication. Verified findings:
+
+  (1) WILDCARD SOFT-404 — crowdgather.com serves HTTP 200 for EVERY path, returning the same
+  GoDaddy parking stub that JS-redirects to /lander. A control request for a nonsense path
+  returned 200 with identical bytes. So the 200s from /.well-known/security.txt,
+  /openid-configuration, /oauth-authorization-server, /api-catalog, /ai-plugin.json and
+  /openapi.json are ALL false positives, not published artifacts. /llms.txt returns parking
+  robots.txt content (robots syntax, not llms.txt format) and is likewise not provider-published.
+  Future runs must not record these status codes as real discovery documents.
+
+  (2) DNS — crowdgather.com on GoDaddy nameservers (domaincontrol.com) pointing at parking IPs.
+  api., developer. and docs.crowdgather.com do not resolve. Google MX and SPF/DMARC (p=none)
+  records persist, i.e. mail config outlived the product.
+
+  (3) PACKAGES — no first-party client libraries anywhere: npm search 0 results, RubyGems 0,
+  Packagist 0. PyPI /project/crowdgather/ returns 200 but is a soft-404 (JSON API says
+  "Not Found"; control path also 200).
+
+  (4) GITHUB — github.com/crowdgather exists (control path 404s, so the account is real) but has
+  ZERO public repositories, no description and no content. Ownership by this company could not be
+  verified, so no GitHubOrganization pointer was emitted — an empty, unattributable account is not
+  a developer surface and claiming it would game the rating.
+
+  No DomainSecurity artifact was written: probing TLS/DNS of a parked lander for a company with no
+  API would add a scored pointer carrying no real provider signal.'
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
+x-enrichment:
+  date: '2026-07-20'
+  status: nochange
+  artifacts_added: 0
+  pass: local-v1
 tags:
 - Company
 apis: []
