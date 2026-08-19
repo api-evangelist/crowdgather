@@ -53,7 +53,7 @@ x-enrichment-note: 'Enrichment pass 2026-07-20 (confirms and extends the 2026-07
 
   No DomainSecurity artifact was written: probing TLS/DNS of a parked lander for a company with no
   API would add a scored pointer carrying no real provider signal.'
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-07-20'
 x-enrichment:
